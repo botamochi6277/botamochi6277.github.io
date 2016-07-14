@@ -68,8 +68,8 @@ function fillsize() {
     margin_y.value = (k * 9).toFixed(2); // mm
     break;
   case "Letter":
-    elm_w.value = (k * 279.4).toFixed(2); // mm
-    elm_h.value = (k * 215.9).toFixed(2); // mm
+    elm_w.value = (k * 215.9).toFixed(2); // mm
+    elm_h.value = (k * 279.4).toFixed(2); // mm
     elm_w.disabled = true;
     elm_h.disabled = true;
     margin_x.value = (k * 14).toFixed(2); // mm
@@ -183,6 +183,7 @@ function fillsize() {
 }
 
 function cardMake(isPrint = false, isDownload = false, isId = true) {
+
   // Show Clock to debug
   var date_obj = new Date();
   console.log("toString: " + date_obj.toString());
@@ -309,7 +310,11 @@ function cardMake(isPrint = false, isDownload = false, isId = true) {
   tagObj.innerHTML = svg.outerHTML;
 
   if (isPrint) {
-    window.location.href = "svg.html?" + escape(svg.outerHTML);
+    //    window.location.href = "svg.html?" + escape(svg.outerHTML);
+    document.getElementById("svgPrint").style.display = "block";
+    document.getElementById("svgPrint").innerHTML = svg.outerHTML;
+    document.getElementById("container").style.display = "none";
+
   }
   if (isDownload) {
     var header = "";
@@ -330,7 +335,7 @@ var downloadAsFile = function (fileName, content) {
   a.download = fileName;
   a.href = blobURL;
   a.click();
-};
+}
 
 function minicard() {
   // Show Clock to debug
@@ -582,7 +587,6 @@ function layout(local_x, local_y, k, id = 0, isId = true) {
   return card;
 }
 
-
 function setId() {
 
   var ids = document.getElementById("card_id");
@@ -610,4 +614,23 @@ function zero_str(n, d) {
     m = "0" + m;
   }
   return m;
+}
+
+function sendCard() {
+  var str =
+
+
+    window.location.href = "svg.html?" + escape(svg.outerHTML);
+}
+
+function getCard() {
+  var data = location.search.substring(1, location.search.length);
+  data = unescape(data);
+  document.getElementById("svg").innerHTML = data;
+}
+
+function revail() {
+  console.log(document.getElementById("container").style.display);
+  document.getElementById("container").style.display = "block";
+  document.getElementById("svgPrint").style.display = "none";
 }

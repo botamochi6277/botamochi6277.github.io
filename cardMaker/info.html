@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Card maker|Info</title>
+  <title>Info</title>
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
@@ -21,16 +22,18 @@
 </head>
 
 
-  <body>
-    <div  class="container">
-      <h1>
+<body>
+  <div class="container">
+    <h1>
       <div class="row">
-          <div class="col-md-1 col-sm-1 col-lg-1"><i class="fa fa-question-circle-o" aria-hidden="true"></i></div>
-          <div class="col-md-10 col-sm-10 col-lg-10">Info. of Card Maker</div>
+          <div class="col-md-1 col-sm-1 col-lg-1"><i class="fa fa-info-circle" aria-hidden="true"></i></div>
+          <div class="col-md-10 col-sm-10 col-lg-10">Information of Card/Label Maker</div>
           <div class="col-md-1 col-sm-1 col-lg-1" id="ver"><sub>ver.<br />0.01</sub></div>
         </div>
       </h1>
-      
+
+
+    <section>
       <h3>Units</h3>
       <table class="table text-right" id="unit">
         <thead>
@@ -86,7 +89,7 @@
             <td>2.54/96</td>
             <td>1/96</td>
             <td>72/96</td>
-            <td class="info" >1</td>
+            <td class="info">1</td>
             <td>72/96</td>
           </tr>
           <!-- px(Mac/Linux) -->
@@ -100,10 +103,46 @@
           </tr>
         </tbody>
       </table>
+    </section>
+    <section>
+      <h3>Paper Size</h3>
+      <table class="table" id="unit">
+        <thead>
+          <tr>
+            <th>Pepar name</th>
+            <th class="text-right">Width [mm]</th>
+            <th class="text-right">Height [mm]</th>
+          </tr>
+        </thead>
+        <tbody>
 
-    </div> <!-- end of container -->
-  </body>
-    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+          <tr>
+            <th>A4</th>
+            <td class="text-right">210</td>
+            <td class="text-right">297</td>
+          </tr>
+          <tr>
+            <th>B5</th>
+            <td class="text-right">176</td>
+            <td class="text-right">250</td>
+          </tr>
+          <tr>
+            <th>Letter</th>
+            <td class="text-right">215.9</td>
+            <td class="text-right">279.4</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h3>Card/Label Size</h3>
+    </section>
+
+  </div>
+  <!-- end of container -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+</body>
+
 </html>

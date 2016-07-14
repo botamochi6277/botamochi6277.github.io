@@ -7,106 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Card maker</title>
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
-
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
-  <style type="text/css">
-    #ver {
-      font-size: 12pt;
-      color: gray;
-    }
-    
-    select {
-      -moz-appearance: none;
-      -webkit-appearance: none;
-      appearance: none;
-      border: 0;
-      margin: 0;
-      padding: 0;
-      vertical-align: middle;
-      font-size: inherit;
-    }
-    
-    .inverse {
-      background: #4A4A4A;
-      color: #F7F7F7;
-      box-sizing: content-box;
-      border: 1px solid #4A4A4A;
-      border-radius: 2px;
-      -webkit-border-radius: 2px;
-      /* For Safari,Google Chrome */
-      -moz-border-radius: 2px;
-      /* For Firefox */
-    }
-    
-    #card_id input {
-      margin-left: 0.5em;
-    }
-    
-    ul.icons {
-      font-size: 24pt;
-      list-style: none;
-      cursor: default;
-      list-style: none;
-      padding-left: 0;
-    }
-    
-    ul.icons li {
-      display: inline-block;
-      height: 2.5em;
-      line-height: 1em;
-      padding: 0 0.1em;
-    }
-    
-    ul.icons li i {
-      margin-left: 0.2em;
-    }
-    
-    input[type="radio"]:checked + i {
-      color: #e44c65;
-    }
-    
-    .custom {
-      display: inline-block;
-      *display: inline;
-      *zoom: 1;
-      position: relative;
-      margin-right: 1em;
-      /*      border: 1px solid rgba(255, 255, 255, 0.5);*/
-    }
-    
-    .custom > select {
-      width: 110%;
-      padding: 0.1em 3.2em 0.1em 0.6em;
-      border: 1px solid #8E8E93;
-      border-radius: 0.2em;
-      margin-right: 0em;
-    }
-    
-    .custom:after {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      right: 0;
-      width: 1.8em;
-      display: block;
-      content: '';
-      background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAGFBMVEUAAAAZJCYWISIYIyQYIiUWIiIYIyQYIiXh0rToAAAACHRSTlMA/hTRqiinvwFkb0sAAABCSURBVHjajchBDsAgDAPBOJDw/x+XVN0icQGfPGs3i+2GEqeiLCXWLENzvdzrDfP2ls/NjfKbgimYglfBq2Dm+LwHguMA235EdKYAAAAASUVORK5CYII=") center no-repeat;
-      pointer-events: none;
-    }
-    
-    input[type="number"] {
-      width: auto;
-      max-width: 6em;
-    }
-    
-    i {
-      text-align: center;
-    }
-    
-    .unit {
-      margin-left: 0.6em;
-    }
-  </style>
+  <link href="./bootstrap-lightbox.min.css" rel="stylesheet">
+  <link href="./makeCard.css" rel="stylesheet">
 
   <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -117,12 +20,12 @@
 
 
 <body onload="fillsize();setId();">
-  <div class="container">
+  <div class="container" id="container">
     <h1>
       <div class="row">
-        <div class="col-md-10 col-sm-10 col-lg-10">Card Maker</div>
+        <div class="col-md-10 col-sm-10 col-lg-10">Card/Label Maker</div>
         <div class="col-md-1 col-sm-1 col-lg-1" id="ver"><sub>ver.<br />0.01</sub></div>
-        <div class="col-md-1 col-sm-1 col-lg-1"><a href="info.html" target="_blank"><i class="fa fa-question-circle-o" aria-hidden="true"></i></a></div>
+        <div class="col-md-1 col-sm-1 col-lg-1"><a href="info.html" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i></a></div>
       </div>
     </h1>
 
@@ -140,15 +43,15 @@
 
         <div class="radio-inline">
           <label>
-            <input type="radio" id="portrait" name="attitude" checked="checked" onclick="fillsize();" type="radio">Portrait</label>
+            <input type="radio" id="portrait" name="attitude" checked="checked" onclick="fillsize();">Portrait</label>
         </div>
         <div class="radio-inline">
           <label>
-            <input type="radio" id="landscape" name="attitude" onclick="fillsize();" type="radio">Landscape</label>
+            <input type="radio" id="landscape" name="attitude" onclick="fillsize();">Landscape</label>
         </div>
       </div>
       <br />
-      <!-- Card Size -->
+      <!-- Paper Size -->
       <div class="row">
         <div class="col-xs-1"><strong>Size: </strong></div>
         <div class="col-xs-11">
@@ -179,7 +82,7 @@
     </section>
 
     <section>
-      <h3>Card Property</h3>
+      <h3>Card/Label Parameters</h3>
       <div class="custom">
         <select name="card_size" id="card_size" onchange="fillsize();">
           <option value="tokyo4">Business Card, Tokyo 4</option>
@@ -218,7 +121,7 @@
     </section>
 
     <section>
-      <h3>Card Content</h3>
+      <h3>Card/Label Content</h3>
       <span><b>Variety: &nbsp;</b></span>
       <div class="radio-inline">
         <label>
@@ -748,14 +651,15 @@
     </div>
   </div>
   <!-- end of container -->
-</body>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>-->
-<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/7.1.0/bootstrap-slider.min.js"></script>-->
-<script type="text/javascript">
-</script>
-<script src="cardMaker.js"></script>
+  <a id="svgPrint" onclick="revail();" href="#">***</a>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+  <script src="./bootstrap-lightbox.min.js"></script>
+  <!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>-->
+  <!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/7.1.0/bootstrap-slider.min.js"></script>-->
+  <script src="cardMaker.js"></script>
+</body>
 
 </html>
