@@ -126,6 +126,18 @@ function fillsize() {
     elm_cmx.value = 0;
     elm_cmy.value = 0;
     break;
+  case "KPC-HH110-20":
+    elm_cw.value = (k * 86.4).toFixed(2);
+    elm_ch.value = (k * 50.8).toFixed(2);
+    rows.value = 5;
+    cols.value = 2;
+    elm_ch.disabled = true;
+    elm_cw.disabled = true;
+    elm_cmx.value = (k * 0).toFixed(2);
+    elm_cmy.value = 0;
+    margin_x.value = (k * 18.6).toFixed(2);
+    margin_y.value = (k * 21.5).toFixed(2);
+    break;
   case "KPC-HH112-20":
     elm_cw.value = (k * 84).toFixed(2);
     elm_ch.value = (k * 42).toFixed(2);
@@ -159,6 +171,7 @@ function fillsize() {
     break;
   }
   document.getElementById("slaveUnit1").innerHTML = elm_u.value; // Card size
+  document.getElementById("slaveUnit2").innerHTML = elm_u.value; // Card margin
   var card_id = document.getElementById("card_id");
   if (rows.value * cols.value > card_id.children.length) {
     alert("Warning!: Max. of the number of cards is " + card_id.children.length + ".");
@@ -182,7 +195,7 @@ function fillsize() {
   console.log("elm_u.disabled: " + elm_u.disabled);
 }
 
-function cardMake(isPrint = false, isDownload = false, isId = true) {
+function cardMake(isPrint, isDownload = false, isId = true) {
 
   // Show Clock to debug
   var date_obj = new Date();
@@ -476,15 +489,27 @@ function layout(local_x, local_y, k, id = 0, isId = true) {
         icon.setAttributeNS(null, 'dominant-baseline', "central");
         switch (cont.children.item(0).children.item(0).value) {
         case "left":
-          icon.setAttributeNS(null, 'font-size', 0.8 * stnd);
-          cap.setAttributeNS(null, 'font-size', 0.4 * stnd);
-          subcap.setAttributeNS(null, 'font-size', 0.2 * stnd);
-          cap.setAttributeNS(null, 'x', local_x + stnd + 0.5 * (card_width - stnd));
-          cap.setAttributeNS(null, 'y', local_y + 0.3 * card_height);
-          subcap.setAttributeNS(null, 'x', local_x + stnd + 0.5 * (card_width - stnd));
-          subcap.setAttributeNS(null, 'y', local_y + 0.7 * card_height);
-          icon.setAttributeNS(null, 'x', local_x + 0.5 * stnd);
-          icon.setAttributeNS(null, 'y', local_y + 0.5 * card_height);
+          if (card_width / card_height > 2) {
+            icon.setAttributeNS(null, 'font-size', 0.8 * stnd);
+            cap.setAttributeNS(null, 'font-size', 0.4 * stnd);
+            subcap.setAttributeNS(null, 'font-size', 0.2 * stnd);
+            cap.setAttributeNS(null, 'x', local_x + stnd + 0.5 * (card_width - stnd));
+            cap.setAttributeNS(null, 'y', local_y + 0.4 * card_height);
+            subcap.setAttributeNS(null, 'x', local_x + stnd + 0.5 * (card_width - stnd));
+            subcap.setAttributeNS(null, 'y', local_y + 0.7 * card_height);
+            icon.setAttributeNS(null, 'x', local_x + 0.5 * stnd);
+            icon.setAttributeNS(null, 'y', local_y + 0.5 * card_height);
+          } else {
+            icon.setAttributeNS(null, 'font-size', 0.6 * stnd);
+            cap.setAttributeNS(null, 'font-size', 0.3 * stnd);
+            subcap.setAttributeNS(null, 'font-size', 0.15 * stnd);
+            cap.setAttributeNS(null, 'x', local_x + 0.75 * card_width);
+            cap.setAttributeNS(null, 'y', local_y + 0.4 * card_height);
+            subcap.setAttributeNS(null, 'x', local_x + 0.75 * card_width);
+            subcap.setAttributeNS(null, 'y', local_y + 0.7 * card_height);
+            icon.setAttributeNS(null, 'x', local_x + 0.25 * card_width);
+            icon.setAttributeNS(null, 'y', local_y + 0.5 * card_height);
+          }
           break;
         case "center":
           icon.setAttributeNS(null, 'font-size', 0.4 * stnd);
@@ -509,12 +534,22 @@ function layout(local_x, local_y, k, id = 0, isId = true) {
         icon.setAttributeNS(null, 'dominant-baseline', "central");
         switch (cont.children.item(0).children.item(0).value) {
         case "left":
-          icon.setAttributeNS(null, 'font-size', 0.8 * stnd);
-          cap.setAttributeNS(null, 'font-size', 0.5 * stnd);
-          cap.setAttributeNS(null, 'x', local_x + stnd + 0.5 * (card_width - stnd));
-          cap.setAttributeNS(null, 'y', local_y + 0.5 * card_height);
-          icon.setAttributeNS(null, 'x', local_x + 0.5 * stnd);
-          icon.setAttributeNS(null, 'y', local_y + 0.5 * card_height);
+          if (card_width / card_height > 2) {
+            icon.setAttributeNS(null, 'font-size', 0.8 * stnd);
+            cap.setAttributeNS(null, 'font-size', 0.5 * stnd);
+            cap.setAttributeNS(null, 'x', local_x + stnd + 0.5 * (card_width - stnd));
+            cap.setAttributeNS(null, 'y', local_y + 0.5 * card_height);
+            icon.setAttributeNS(null, 'x', local_x + 0.5 * stnd);
+            icon.setAttributeNS(null, 'y', local_y + 0.5 * card_height);
+          } else {
+            icon.setAttributeNS(null, 'font-size', 0.6 * stnd);
+            cap.setAttributeNS(null, 'font-size', 0.3 * stnd);
+            cap.setAttributeNS(null, 'x', local_x + 0.75 * card_width);
+            cap.setAttributeNS(null, 'y', local_y + 0.5 * card_height);
+            icon.setAttributeNS(null, 'x', local_x + 0.25 * card_width);
+            icon.setAttributeNS(null, 'y', local_y + 0.5 * card_height);
+          }
+
           break;
         case "center":
           icon.setAttributeNS(null, 'font-size', 0.4 * stnd);
