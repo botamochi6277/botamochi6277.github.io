@@ -9,5 +9,5 @@ Card/label maker in Javascript.
 5. Print this page with no margin.
 6. You can be back the form page by click a paper image.
 
-![1](/img/copy-icon.png)
+![1](./img/copy-icon.png)
 You can copy and paste icons.
