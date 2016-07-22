@@ -8,7 +8,6 @@
   <title>Card maker</title>
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
-  <link href="./bootstrap-lightbox.min.css" rel="stylesheet">
   <link href="./makeCard.css" rel="stylesheet">
 
   <!--[if lt IE 9]>
@@ -119,6 +118,32 @@
           <span id="slaveUnit2" class="unit"></span>
         </div>
       </div>
+
+      <div>
+        <span><b>Outline: &nbsp;</b></span>
+        <div class="radio-inline">
+          <label>
+            <input type="radio" id="rect" name="outline" checked="checked" onclick="fillsize();">Rectangle</label>
+        </div>
+        <div class="radio-inline">
+          <label>
+            <input type="radio" id="elps" name="outline" onclick="fillsize();">Ellipse</label>
+          <div class="radio-inline">
+            <label>
+              <input type="radio" id="dmnd" name="outline" onclick="fillsize();">Diamond</label>
+          </div>
+        </div>
+      </div>
+
+
+      <!--
+      <div class="checkbox">
+        <label class="checkbox-inline">
+          <input type="checkbox" value="">Cut line</label>
+        <label class="checkbox-inline">
+          <input type="checkbox" value="">Center Target</label>
+      </div>
+-->
     </section>
 
     <section>
@@ -657,9 +682,6 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-  <script src="./bootstrap-lightbox.min.js"></script>
-  <!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>-->
-  <!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/7.1.0/bootstrap-slider.min.js"></script>-->
   <script src="cardMaker.js"></script>
 </body>
 
