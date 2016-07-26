@@ -58,8 +58,11 @@ input[type="radio"]:checked + i {
   *display: inline;
   *zoom: 1;
   position: relative;
+  vertical-align: middle;
   margin-right: 1em;
-  /*      border: 1px solid rgba(255, 255, 255, 0.5);*/
+  margin-bottom: 0.25em;
+  /*  line-height:2em;*/
+  /*        border: 1px solid rgba(255, 255, 255, 0.5);*/
 }
 
 .custom > select {

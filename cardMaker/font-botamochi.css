@@ -1,0 +1,297 @@
+@font-face {
+  font-family: 'FontBotamochi';
+  src: url('../fontBotamochi/fonts/fontbotamochi.eot?mbv9mz');
+  src: url('../fontBotamochi/fonts/fontbotamochi.eot?mbv9mz#iefix') format('embedded-opentype'), url('../fontBotamochi/fonts/fontbotamochi.ttf?mbv9mz') format('truetype'), url('../fontBotamochi/fonts/fontbotamochi.woff?mbv9mz') format('woff'), url('../fontBotamochi/fonts/fontbotamochi.svg?mbv9mz#fontbotamochi') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.fb {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontBotamochi;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smootShing: grayscale;
+}
+
+
+/* makes the font 33% larger relative to the icon container */
+
+.fb-lg {
+  font-size: 1.33333333em;
+  line-height: 0.75em;
+  vertical-align: -15%;
+}
+
+.fb-2x {
+  font-size: 2em;
+}
+
+.fb-3x {
+  font-size: 3em;
+}
+
+.fb-4x {
+  font-size: 4em;
+}
+
+.fb-5x {
+  font-size: 5em;
+}
+
+.fb-fw {
+  width: 1.28571429em;
+  text-align: center;
+}
+
+.fb-ul {
+  padding-left: 0;
+  margin-left: 2.14285714em;
+  list-style-type: none;
+}
+
+.fb-ul > li {
+  position: relative;
+}
+
+.fb-li {
+  position: absolute;
+  left: -2.14285714em;
+  width: 2.14285714em;
+  top: 0.14285714em;
+  text-align: center;
+}
+
+.fb-li.fb-lg {
+  left: -1.85714286em;
+}
+
+.fb-border {
+  padding: .2em .25em .15em;
+  border: solid 0.08em #eeeeee;
+  border-radius: .1em;
+}
+
+.fb-pull-left {
+  float: left;
+}
+
+.fb-pull-right {
+  float: right;
+}
+
+.fa.fb-pull-left {
+  margin-right: .3em;
+}
+
+.fa.fb-pull-right {
+  margin-left: .3em;
+}
+
+
+/* From fontawesome Deprecated as of 4.4.0 */
+
+.pull-right {
+  float: right;
+}
+
+.pull-left {
+  float: left;
+}
+
+.fa.pull-left {
+  margin-right: .3em;
+}
+
+.fa.pull-right {
+  margin-left: .3em;
+}
+
+.fb-spin {
+  -webkit-animation: fb-spin 2s infinite linear;
+  animation: fb-spin 2s infinite linear;
+}
+
+.fb-pulse {
+  -webkit-animation: fb-spin 1s infinite steps(8);
+  animation: fb-spin 1s infinite steps(8);
+}
+
+@-webkit-keyframes fb-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+
+@keyframes fb-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+
+.fb-rotate-90 {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=1)";
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.fb-rotate-180 {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2)";
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.fb-rotate-270 {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=3)";
+  -webkit-transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
+  transform: rotate(270deg);
+}
+
+.fb-flip-horizontal {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1)";
+  -webkit-transform: scale(-1, 1);
+  -ms-transform: scale(-1, 1);
+  transform: scale(-1, 1);
+}
+
+.fb-flip-vertical {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)";
+  -webkit-transform: scale(1, -1);
+  -ms-transform: scale(1, -1);
+  transform: scale(1, -1);
+}
+
+:root .fb-rotate-90,
+:root .fb-rotate-180,
+:root .fb-rotate-270,
+:root .fb-flip-horizontal,
+:root .fb-flip-vertical {
+  filter: none;
+}
+
+.fb-stack {
+  position: relative;
+  display: inline-block;
+  width: 2em;
+  height: 2em;
+  line-height: 2em;
+  vertical-align: middle;
+}
+
+.fb-stack-1x,
+.fb-stack-2x {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.fb-stack-1x {
+  line-height: inherit;
+}
+
+.fb-stack-2x {
+  font-size: 2em;
+}
+
+.fb-inverse {
+  color: #ffffff;
+}
+
+
+/* Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen
+   readers do not read off random characters that represent icons */
+
+.fb-combustible:before {
+  content: "\e90f";
+}
+
+.fb-incombustible:before {
+  content: "\e910";
+}
+
+.fb-broken-cup:before {
+  content: "\e911";
+}
+
+.fb-pack:before {
+  content: "\e902";
+}
+
+.fb-pet-bottole:before {
+  content: "\e90d";
+}
+
+.fb-can:before {
+  content: "\e912";
+}
+
+.fb-can2:before {
+  content: "\e913";
+}
+
+.fb-bottole:before {
+  content: "\e901";
+}
+
+.fb-papers .path1:before {
+  content: "\e903";
+}
+
+.fb-papers .path2:before {
+  content: "\e904";
+}
+
+.fb-papers .path3:before {
+  content: "\e905";
+}
+
+.fb-papers .path4:before {
+  content: "\e906";
+}
+
+.fb-papers .path5:before {
+  content: "\e907";
+}
+
+.fb-papers .path6:before {
+  content: "\e908";
+}
+
+.fb-papers .path7:before {
+  content: "\e909";
+}
+
+.fb-papers .path8:before {
+  content: "\e90a";
+}
+
+.fb-papers .path9:before {
+  content: "\e90b";
+}
+
+.fb-papers .path10:before {
+  content: "\e90c";
+}
+
+.fb-spray:before {
+  content: "\e90e";
+}
+
+.fb-eaten-fish:before {
+  content: "\e900";
+}
