@@ -123,6 +123,26 @@ function fillsize() {
     elm_cmx.value = 0;
     elm_cmy.value = 0;
     break;
+  case "full":
+    elm_cw.value = elm_w.value - 2 * margin_x.value;
+    elm_ch.value = elm_h.value - 2 * margin_y.value;
+    rows.value = 1;
+    cols.value = 1;
+    elm_ch.disabled = true;
+    elm_cw.disabled = true;
+    elm_cmx.value = 0;
+    elm_cmy.value = 0;
+    break;
+  case "sqrt":
+    elm_cw.value = (k * 60).toFixed(2);
+    elm_ch.value = (k * 60).toFixed(2);
+    rows.value = 4;
+    cols.value = 3;
+    elm_cmx.value = 0;
+    elm_cmy.value = 0;
+    elm_ch.disabled = false;
+    elm_cw.disabled = false;
+    break;
   case "KPC-HH110-20":
     elm_cw.value = (k * 86.4).toFixed(2);
     elm_ch.value = (k * 50.8).toFixed(2);
@@ -193,7 +213,19 @@ function fillsize() {
 
 }
 
-function cardMake(isPrint, isDownload = false, isId = true) {
+function cardMake() {
+
+  var isPrint = false;
+  var isDownload = false;
+  var isId = false;
+
+  //  Read Flags
+  for (var i = 0; i < arguments.length; i++) {
+    console.log(i + ": " + arguments[i]);
+    if (arguments[i] == "print") isPrint = true;
+    if (arguments[i] == "download") isDownload = true;
+    if (arguments[i] == "id") isId = true;
+  }
 
   // Show Clock to debug
   var date_obj = new Date();
@@ -340,10 +372,10 @@ function cardMake(isPrint, isDownload = false, isId = true) {
 }
 
 var downloadAsFile = function (fileName, content) {
+  alert("You need to install FontAwesome and FontBotamochi")
   var blob = new Blob([content]);
   var url = window.URL || window.webkitURL;
   var blobURL = url.createObjectURL(blob);
-
   var a = document.createElement('a');
   a.download = fileName;
   a.href = blobURL;
@@ -441,6 +473,8 @@ function layout(local_x, local_y, k, id = 0, isId = true) {
   var refH = 0;
   var refX = 0;
   var refY = 0;
+  var stnd;
+
   if (document.getElementById("elps").checked) {
     // Ellipse outline
     var outline = document.createElementNS('http://www.w3.org/2000/svg', 'ellipse');
@@ -449,10 +483,15 @@ function layout(local_x, local_y, k, id = 0, isId = true) {
     outline.setAttributeNS(null, 'rx', 0.5 * card_width);
     outline.setAttributeNS(null, 'ry', 0.5 * card_height);
 
-    refW = card_width;
-    refH = card_height;
-    refX = local_x;
-    refY = local_y;
+    refW = 0.9 * card_width;
+    refH = 0.9 * card_height;
+    refX = local_x + 0.5 * (card_width - refW);
+    refY = local_y + 0.5 * (card_height - refH);
+    if (refW > refH) {
+      stnd = refH;
+    } else {
+      stnd = refW;
+    }
 
   } else if (document.getElementById("dmnd").checked) {
     var outline = document.createElementNS('http://www.w3.org/2000/svg', 'path');
@@ -466,12 +505,64 @@ function layout(local_x, local_y, k, id = 0, isId = true) {
     refH = 0.707 * card_height;
     refX = local_x + 0.5 * (card_width - refW);
     refY = local_y + 0.5 * (card_height - refH);
+    if (refW > refH) {
+      stnd = refH;
+    } else {
+      stnd = refW;
+    }
+  } else if (document.getElementById("cpsl").checked) {
+
+    refW = card_width;
+    refH = card_height;
+    refX = local_x;
+    refY = local_y;
+    if (refW > refH) {
+      stnd = refH;
+    } else {
+      stnd = refW;
+    }
+
+    var outline = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+    outline.setAttributeNS(null, 'x', local_x);
+    outline.setAttributeNS(null, 'y', local_y);
+    outline.setAttributeNS(null, 'width', card_width);
+    outline.setAttributeNS(null, 'height', card_height);
+    outline.setAttributeNS(null, 'rx', 0.5 * stnd);
+    outline.setAttributeNS(null, 'ry', 0.5 * stnd);
+
+  } else if (document.getElementById("hex").checked) {
+    const PI = 3.14195;
+    var outline = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    var d = "M " + (local_x + 0.5 * card_width) + " " + (local_y);
+    for (var i = 1; i < 6; i++) {
+      d += " L " + (local_x + 0.5 * card_width - 0.5 * card_width * Math.sin(PI * i / 3)) + " " + (local_y + 0.5 * card_height - 0.5 * card_height * Math.cos(PI * i / 3));
+    }
+
+    d += " z";
+    console.log(d);
+    console.log(Math.sin(PI * 0.5));
+    outline.setAttributeNS(null, 'd', d);
+
+    refW = 0.9 * card_width;
+    refH = 0.9 * card_height;
+    refX = local_x + 0.5 * (card_width - refW);
+    refY = local_y + 0.5 * (card_height - refH);
+    if (refW > refH) {
+      stnd = refH;
+    } else {
+      stnd = refW;
+    }
   } else {
 
     refW = card_width;
     refH = card_height;
     refX = local_x;
     refY = local_y;
+    if (refW > refH) {
+      stnd = refH;
+    } else {
+      stnd = refW;
+    }
     var outline = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
     outline.setAttributeNS(null, 'x', local_x);
     outline.setAttributeNS(null, 'y', local_y);
@@ -479,13 +570,6 @@ function layout(local_x, local_y, k, id = 0, isId = true) {
     outline.setAttributeNS(null, 'height', card_height);
   }
 
-
-  var stnd;
-  if (refW > refH) {
-    stnd = refH;
-  } else {
-    stnd = refW;
-  }
   //    console.log("stnd: "+stnd+ " " + local_x +"," + local_y);
   if (!document.getElementById("rect").checked && isId) {
     var ref = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
@@ -500,8 +584,12 @@ function layout(local_x, local_y, k, id = 0, isId = true) {
     card.appendChild(ref);
   }
 
+  if (isId) {
+    outline.setAttributeNS(null, 'stroke', 'blue');
+  } else {
+    outline.setAttributeNS(null, 'stroke', 'blue');
+  }
 
-  outline.setAttributeNS(null, 'stroke', 'blue');
   outline.setAttributeNS(null, 'stroke-width', stnd / 500);
   outline.setAttributeNS(null, 'fill', 'none');
   outline.setAttributeNS(null, 'stroke-dasharray', card_width / 100 + "," + card_height / 50);

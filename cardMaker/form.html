@@ -24,7 +24,7 @@
     <h1>
       <div class="row">
         <div class="col-md-9 col-sm-9 col-lg-9">Card/Label Maker</div>
-        <div class="col-md-1 col-sm-1 col-lg-1" id="ver"><sub>ver.<br />1.20</sub></div>
+        <div class="col-md-1 col-sm-1 col-lg-1" id="ver"><sub>ver.<br />1.30</sub></div>
         <div class="col-md-1 col-sm-1 col-lg-1"><a href="info.html" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i></a></div>
         <div class="col-md-1 col-sm-1 col-lg-1"><a href="https://github.com/botamochi6277/botamochi6277.github.io/tree/master/cardMaker" target="_blank"><i class="fa fa-question-circle" aria-hidden="true"></i></a></div>
       </div>
@@ -88,6 +88,8 @@
           <select name="card_size" id="card_size" onchange="fillsize();">
             <option value="tokyo4">Business Card, Tokyo 4</option>
             <option value="smart">Business Card, Smart</option>
+            <option value="full">Full</option>
+            <option value="sqrt">Square</option>
             <option value="KPC-HH110-20">KOKUYO, KPC-HH110-20</option>
             <option value="KPC-HH112-20">KOKUYO, KPC-HH112-20</option>
             <option value="KPC-HH124-20">KOKUYO, KPC-HH124-20</option>
@@ -130,19 +132,26 @@
           <div class="radio-inline">
             <label>
               <input type="radio" id="elps" name="outline" onclick="fillsize();">Ellipse</label>
-            <div class="radio-inline">
-              <label>
-                <input type="radio" id="dmnd" name="outline" onclick="fillsize();">Diamond</label>
-            </div>
           </div>
+          <div class="radio-inline">
+            <label>
+              <input type="radio" id="dmnd" name="outline" onclick="fillsize();">Diamond</label>
+          </div>
+          <div class="radio-inline">
+            <label>
+              <input type="radio" id="cpsl" name="outline" onclick="fillsize();">Capsule</label>
+          </div>
+          <div class="radio-inline">
+            <label>
+              <input type="radio" id="hex" name="outline" onclick="fillsize();">Hexagon</label>
+          </div>
+
         </div>
 
       </div>
     </div>
 
     <section>
-
-
 
       <!--
       <div class="checkbox">
@@ -853,13 +862,13 @@
 
     <div>
       <button type="button" class="btn btn-default" onclick="minicard();">Card Preview</button>
-      <button type="button" class="btn btn-primary" onclick="cardMake();">Paper Preview</button>
-      <button type="button" class="btn btn-success" onclick="cardMake(true,false,false);">Print</button>
-      <button type="button" class="btn btn-info" onclick="cardMake(false,true,false);">Download</button>
+      <button type="button" class="btn btn-primary" onclick="cardMake('id');">Paper Preview</button>
+      <button type="button" class="btn btn-success" onclick="cardMake('print');">Print</button>
+      <button type="button" class="btn btn-info" onclick="cardMake('download');">Download</button>
     </div>
     <br />
     <div style=""></div>
-    <div class="row">
+    <div class="row" id="svgWrapper">
       <div class="col-md-4 col-sm-12 col-lg-4" id="minicard"></div>
       <div class="col-md-8 col-sm-12 col-lg-8" id="svg"></div>
     </div>

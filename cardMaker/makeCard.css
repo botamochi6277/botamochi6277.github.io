@@ -97,3 +97,13 @@ i {
 .unit {
   margin-left: 0.6em;
 }
+
+#svg {
+  max-width: 66%;
+  overflow: scroll;
+}
+
+#minicard {
+  max-width: 33%;
+  overflow: scroll;
+}
