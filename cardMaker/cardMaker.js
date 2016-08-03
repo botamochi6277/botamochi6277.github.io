@@ -446,7 +446,7 @@ function minicard() {
   var card;
   for (var i = 0; i < ids.children.length; i++) {
     if (ids.children.item(i).children.item(0).checked) {
-      card = layout(0, 0, k, i);
+      card = layout(0, 0, k, i,true);
       break;
     }
   }
@@ -461,7 +461,7 @@ function minicard() {
 
 }
 
-function layout(local_x, local_y, k, id = 0, isId = true) {
+function layout(local_x, local_y, k, id, isId) {
   //    console.log("layout: " + id)
   var cont = document.getElementById("cardCont").children.item(id);
   var card_width = k * Number(document.getElementById("card_width").value);
