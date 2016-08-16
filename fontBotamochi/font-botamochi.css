@@ -81,11 +81,11 @@
   float: right;
 }
 
-.fa.fb-pull-left {
+.fb.fb-pull-left {
   margin-right: .3em;
 }
 
-.fa.fb-pull-right {
+.fb.fb-pull-right {
   margin-left: .3em;
 }
 
@@ -216,82 +216,96 @@
 /* Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen
    readers do not read off random characters that represent icons */
 
+.fb-botamochi-solid:before {
+  content: "\e800";
+}
+.fb-botamochi:before {
+  content: "\e801";
+}
+.fb-fontbotamochi:before {
+  content: "\e802";
+}
+.fb-botamochi-card:before {
+  content: "\e803";
+}
 .fb-combustible:before {
-  content: "\e90f";
-}
-
-.fb-incombustible:before {
-  content: "\e910";
-}
-
-.fb-broken-cup:before {
-  content: "\e911";
-}
-
-.fb-pack:before {
   content: "\e902";
 }
-
-.fb-pet-bottole:before {
-  content: "\e90d";
-}
-
-.fb-can:before {
-  content: "\e912";
-}
-
-.fb-can2:before {
-  content: "\e913";
-}
-
-.fb-bottole:before {
-  content: "\e901";
-}
-
-.fb-papers .path1:before {
+.fb-incombustible:before {
   content: "\e903";
 }
-
-.fb-papers .path2:before {
+.fb-broken-cup:before {
   content: "\e904";
 }
-
-.fb-papers .path3:before {
+.fb-pack:before {
   content: "\e905";
 }
-
-.fb-papers .path4:before {
+.fb-pet-bottole:before {
   content: "\e906";
 }
-
-.fb-papers .path5:before {
+.fb-can:before {
   content: "\e907";
 }
-
-.fb-papers .path6:before {
+.fb-can2:before {
   content: "\e908";
 }
-
-.fb-papers .path7:before {
+.fb-bottole:before {
   content: "\e909";
 }
-
-.fb-papers .path8:before {
+.fb-spray:before {
   content: "\e90a";
 }
-
-.fb-papers .path9:before {
+.fb-eaten-fish:before {
   content: "\e90b";
 }
-
-.fb-papers .path10:before {
+.fb-papers:before {
   content: "\e90c";
 }
-
-.fb-spray:before {
-  content: "\e90e";
+.fb-t-shirt:before {
+  content: "\ea00";
 }
-
-.fb-eaten-fish:before {
-  content: "\e900";
+.fb-t-shirt-long:before {
+  content: "\ea01";
+}
+.fb-shirt:before {
+  content: "\ea02";
+}
+.fb-hoodie:before {
+  content: "\ea03";
+}
+.fb-sweater:before {
+  content: "\ea04";
+}
+.fb-pants:before {
+  content: "\ea05";
+}
+.fb-skirt:before {
+  content: "\ea06";
+}
+.fb-trunk:before {
+  content: "\ea07";
+}
+.fb-bra:before {
+  content: "\ea08";
+}
+.fb-panty:before {
+  content: "\ea09";
+}
+.fb-socks:before {
+  content: "\ea0a";
+}
+.fb-tie:before {
+  content: "\ea0b";
+}
+.fb-hanky:before {
+  content: "\ea0c";
+}
+.fb-towel:before {
+  content: "\ea0d";
+}
+.fb-hanger:before {
+  content: "\ea0e";
+}
+.fb-backpack:before {
+  content: "\ea0f";
 }

@@ -783,13 +783,20 @@ function setId() {
     } else {
       conts.children.item(i).style.display = "none";
     }
+    
+    switch(conts.children.item(i).children.item(3).style.fontFamily){
+      case "FontAwesome":
+        conts.children.item(i).children.item(3).placeholder = " icon";
+        break;
+      case "FontBotamochi":
+        conts.children.item(i).children.item(3).placeholder = " icon";
+        break;
+    }
 
   }
 
   console.log("iconFont: " + conts.children.item(0).children.item(3).style.fontFamily);
   console.log("iconFont: " + conts.children.item(0).children.item(4).children.item(0).value);
-  conts.children.item(0).children.item(3).style.fontFamily = conts.children.item(0).children.item(4).children.item(0).value;
-
 }
 
 function zero_str(n, d) {
