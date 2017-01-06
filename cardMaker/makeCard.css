@@ -101,9 +101,11 @@ i {
 #svg {
   max-width: 66%;
   overflow: scroll;
+  border: solid #C7C7CC;
 }
 
 #minicard {
   max-width: 33%;
   overflow: scroll;
+  border: solid #C7C7CC;
 }

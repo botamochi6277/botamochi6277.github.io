@@ -16,7 +16,7 @@ function fillsize() {
     k = 1 / 25.4 //1in = 25.4mm
     break;
   case "pt":
-    k = 72 / 25.4 // 1pt = 1/72in = 25.4/72mm 
+    k = 72 / 25.4 // 1pt = 1/72in = 25.4/72mm
     break;
   case "px":
     k = dpi / 25.4 // 1px = 1/72dpi = 25.4/72mm
@@ -33,7 +33,7 @@ function fillsize() {
     k2 = 1 / 25.4 //1in = 25.4mm
     break;
   case "pt":
-    k2 = 72 / 25.4 // 1pt = 1/72in = 25.4/72mm 
+    k2 = 72 / 25.4 // 1pt = 1/72in = 25.4/72mm
     break;
   case "px":
     k2 = dpi / 25.4 // 1px = 1/72dpi = 25.4/72mm
@@ -57,7 +57,7 @@ function fillsize() {
     elm_w.disabled = true;
     elm_h.disabled = true;
     margin_x.value = (k * 14.0).toFixed(2); // mm
-    margin_y.value = (k * 11.0).toFixed(2); // mm 
+    margin_y.value = (k * 11.0).toFixed(2); // mm
     break;
   case "B5":
     elm_w.value = (k * 176).toFixed(2); // mm
@@ -243,7 +243,7 @@ function cardMake() {
   var k = 1; // pt base
   switch (unit) {
   case "mm":
-    k = 72 / 25.4; // 1pt = 1/72in = 25.4/72mm 
+    k = 72 / 25.4; // 1pt = 1/72in = 25.4/72mm
     break;
   case "cm":
     k = 72 / 2.54; //1cm = 10mm
@@ -399,7 +399,7 @@ function minicard() {
   var k = 1; // pt base
   switch (unit) {
   case "mm":
-    k = 72 / 25.4; // 1pt = 1/72in = 25.4/72mm 
+    k = 72 / 25.4; // 1pt = 1/72in = 25.4/72mm
     break;
   case "cm":
     k = 72 / 2.54; //1cm = 10mm
@@ -783,7 +783,7 @@ function setId() {
     } else {
       conts.children.item(i).style.display = "none";
     }
-    
+
     switch(conts.children.item(i).children.item(3).style.fontFamily){
       case "FontAwesome":
         conts.children.item(i).children.item(3).placeholder = " icon";
